@@ -1,32 +1,48 @@
-# React + TypeScript + Vite
+# ⚽ Reverse Akinator
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A modern, highly-interactive web application built with React and Tailwind CSS. Instead of guessing the player you are thinking of, the AI attempts to guess by asking you up to 20 strategic questions!
 
-Currently, two official plugins are available:
+## 🚀 Features
+- **Strict State Management**: Robust state machine handling `INTRO`, `ASKING`, `LOADING`, `WIN`, and `LOSE` game flows.
+- **Dynamic UI**: Beautiful, EA-Sports inspired cyberpunk aesthetic featuring glassmorphism and subtle micro-animations.
+- **Responsive Design**: Fully responsive component architecture that looks great on mobile, tablet, and desktop.
+- **Vite & React**: Lightning-fast local development and optimized production builds.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Tech Stack
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS v4](https://tailwindcss.com/)
 
-## React Compiler
+## 💻 Running Locally
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+To get the project running on your local machine, follow these steps:
 
-## Expanding the Oxlint configuration
+1. **Clone the repository** (if you haven't already):
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/reverse-akinator.git
+   cd reverse-akinator
+   ```
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+3. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+4. Open your browser and navigate to the URL provided in your terminal (usually `http://localhost:5173/`).
+
+## 📁 Project Structure
+- `src/components/` - Modular UI components (`GameSession`, `GameScreen`, `IntroScreen`, etc.)
+- `src/hooks/` - Custom React hooks handling business logic (`useGameMachine`)
+- `src/types/` - TypeScript type definitions
+
+## 🎮 How to Play
+1. Think of a famous football player.
+2. Click **Start Game**.
+3. The AI will ask you Yes/No style questions. Answer them truthfully using the on-screen buttons.
+4. If the AI guesses correctly within 20 questions, it wins. If it can't, you win!
