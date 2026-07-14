@@ -17,7 +17,7 @@ export const QuestionBox: React.FC<QuestionBoxProps> = ({ question, isLoading })
           <span className="text-cyan-500/70 font-semibold tracking-widest uppercase text-sm">Processing...</span>
         </div>
       ) : (
-        <h2 className="text-2xl md:text-3xl font-bold text-center text-slate-100 animate-in slide-in-from-bottom-4 fade-in duration-500">
+        <h2 className="text-2xl md:text-3xl font-bold text-center text-slate-100 animate-slide-fade-in">
           "{question}"
         </h2>
       )}

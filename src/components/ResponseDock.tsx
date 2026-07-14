@@ -7,11 +7,11 @@ interface ResponseDockProps {
 }
 
 const BUTTON_CONFIG: { label: AnswerType; colorClass: string }[] = [
-  { label: 'Yes', colorClass: 'bg-emerald-600 hover:bg-emerald-500 ring-emerald-500/50' },
-  { label: 'Probably', colorClass: 'bg-teal-600 hover:bg-teal-500 ring-teal-500/50' },
-  { label: 'Don\'t Know', colorClass: 'bg-slate-600 hover:bg-slate-500 ring-slate-500/50' },
-  { label: 'Probably Not', colorClass: 'bg-rose-700 hover:bg-rose-600 ring-rose-700/50' },
-  { label: 'No', colorClass: 'bg-rose-500 hover:bg-rose-400 ring-rose-500/50' },
+  { label: 'Yes', colorClass: 'bg-emerald-600 hover:bg-emerald-500 ring-emerald-500/50 hover:shadow-[0_0_20px_rgba(16,185,129,0.6)]' },
+  { label: 'Probably', colorClass: 'bg-teal-600 hover:bg-teal-500 ring-teal-500/50 hover:shadow-[0_0_20px_rgba(20,184,166,0.6)]' },
+  { label: 'Don\'t Know', colorClass: 'bg-slate-600 hover:bg-slate-500 ring-slate-500/50 hover:shadow-[0_0_20px_rgba(100,116,139,0.6)]' },
+  { label: 'Probably Not', colorClass: 'bg-rose-700 hover:bg-rose-600 ring-rose-700/50 hover:shadow-[0_0_20px_rgba(190,18,60,0.6)]' },
+  { label: 'No', colorClass: 'bg-rose-500 hover:bg-rose-400 ring-rose-500/50 hover:shadow-[0_0_20px_rgba(244,63,94,0.6)]' },
 ];
 
 export const ResponseDock: React.FC<ResponseDockProps> = ({ onAnswer, disabled }) => {
@@ -30,9 +30,9 @@ export const ResponseDock: React.FC<ResponseDockProps> = ({ onAnswer, disabled }
             className={`
               ${colSpan} ${colorClass} 
               text-white font-bold py-4 px-2 rounded-xl text-sm md:text-base uppercase tracking-wider
-              transition-all duration-200 
-              active:scale-95 hover:ring-4 hover:shadow-lg
-              disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100 disabled:hover:ring-0 disabled:hover:shadow-none
+              transition-all duration-300 ease-out transform hover:-translate-y-1
+              active:scale-95 hover:ring-4
+              disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100 disabled:hover:ring-0 disabled:hover:shadow-none disabled:hover:translate-y-0
             `}
           >
             {label}

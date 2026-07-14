@@ -29,7 +29,7 @@ export const GameSession: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 font-sans text-slate-100 selection:bg-cyan-500/30 flex flex-col relative overflow-hidden">
+    <div className="min-h-screen font-sans text-slate-100 selection:bg-cyan-500/30 flex flex-col relative overflow-hidden">
       {/* Background ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-cyan-900/20 rounded-full blur-[120px] pointer-events-none" />
       

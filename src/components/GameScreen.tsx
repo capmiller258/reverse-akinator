@@ -13,10 +13,11 @@ export const GameScreen: React.FC<GameScreenProps> = ({ state, onAnswer }) => {
   const isLoading = state.status === 'LOADING';
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-4 flex flex-col justify-center min-h-[80vh] animate-in fade-in duration-500">
+    <div className="w-full max-w-4xl mx-auto p-4 flex flex-col justify-center min-h-[80vh] animate-slide-fade-in">
       <StatusBar questionCount={state.questionCount} maxQuestions={20} />
       
       <QuestionBox 
+        key={state.currentQuestion}
         question={state.currentQuestion} 
         isLoading={isLoading} 
       />

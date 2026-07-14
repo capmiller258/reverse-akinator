@@ -10,7 +10,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({ state, onRestart }) 
   const isWin = state.status === 'WIN';
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center p-6 space-y-8 animate-in zoom-in duration-500">
+    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center p-6 space-y-8 animate-zoom-in">
       <div className={`p-8 rounded-3xl border-2 backdrop-blur-lg shadow-2xl ${isWin ? 'bg-emerald-900/40 border-emerald-500/50 shadow-emerald-500/20' : 'bg-rose-900/40 border-rose-500/50 shadow-rose-500/20'} max-w-lg w-full relative overflow-hidden`}>
         {/* Glow effect */}
         <div className={`absolute -top-20 -left-20 w-40 h-40 rounded-full blur-3xl opacity-30 ${isWin ? 'bg-emerald-500' : 'bg-rose-500'}`} />

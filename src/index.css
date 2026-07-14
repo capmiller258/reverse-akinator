@@ -6,6 +6,38 @@
 
 @layer base {
   body {
-    @apply bg-slate-950 text-slate-100 font-sans antialiased;
+    @apply bg-transparent text-slate-100 font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  @keyframes slideFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-fade-in {
+    animation: slideFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-zoom-in {
+    animation: zoomIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 }

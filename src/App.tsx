@@ -1,8 +1,13 @@
 import { GameSession } from './components/GameSession'
 
+import { BackgroundEffects } from './components/BackgroundEffects'
+
 function App() {
   return (
-    <GameSession />
+    <>
+      <BackgroundEffects />
+      <GameSession />
+    </>
   )
 }
 

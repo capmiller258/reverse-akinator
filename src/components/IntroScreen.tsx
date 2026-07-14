@@ -7,7 +7,7 @@ interface IntroScreenProps {
 
 export const IntroScreen: React.FC<IntroScreenProps> = ({ onStart, isLoading }) => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center p-6 space-y-8 animate-in fade-in zoom-in duration-500">
+    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center p-6 space-y-8 animate-zoom-in">
       <div className="space-y-4">
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 drop-shadow-sm uppercase">
           Reverse Akinator
