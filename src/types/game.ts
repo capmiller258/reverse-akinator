@@ -1,16 +1,22 @@
-export type GameStatus = 'INTRO' | 'ASKING' | 'LOADING' | 'WIN' | 'LOSE';
+export type GameStatus =
+  | 'IDLE'
+  | 'THINKING_PLAYER'
+  | 'PLAYING'
+  | 'VAR_CHECK'
+  | 'WIN'
+  | 'GIVE_UP'
+  | 'ERROR';
 
-export type AnswerType = 'Yes' | 'Probably' | 'Don\'t Know' | 'Probably Not' | 'No';
+export type AllowedAnswer = 'Yes' | 'No' | 'Probably' | 'Probably Not' | "Don't Know";
 
-export interface ChatMessage {
+export interface ChatLogEntry {
   question: string;
-  answer: AnswerType;
+  answer: AllowedAnswer;
 }
 
 export interface GameState {
   status: GameStatus;
+  secretPlayer: string | null;
+  chatLog: ChatLogEntry[];
   questionCount: number;
-  currentQuestion: string;
-  guessedPlayer: string | null;
-  chatLog: ChatMessage[];
 }

@@ -2,42 +2,107 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: "Oswald", ui-sans-serif, system-ui, sans-serif;
+
+  --color-pitch-grass-primary: #0B4D2C;
+  --color-pitch-grass-secondary: #1FA24A;
+  --color-stadium-gold: #D4AF37;
+  --color-stadium-navy: #0A192F;
+  --color-stadium-floodlight: #F8FAFC;
+  --color-referee-red: #DC2626;
+  --color-referee-orange: #F97316;
+  --color-referee-gray: #475569;
 }
 
 @layer base {
   body {
-    @apply bg-transparent text-slate-100 font-sans antialiased;
+    @apply bg-stadium-navy text-stadium-floodlight font-sans antialiased m-0 p-0 overflow-x-hidden;
   }
 }
 
+@layer components {
+  .match-overlay-panel {
+    @apply flex flex-col w-full max-w-3xl mx-auto overflow-hidden rounded-xl shadow-2xl bg-slate-900 relative;
+    border: 4px solid var(--color-stadium-navy);
+    box-shadow: 0 0 0 2px var(--color-pitch-grass-secondary);
+  }
+
+  .match-scoreboard-header {
+    @apply flex items-center justify-between bg-stadium-navy px-6 py-4 shadow-lg w-full shrink-0;
+    border-bottom: 4px solid var(--color-pitch-grass-secondary);
+  }
+
+  .match-scoreboard-label {
+    @apply font-display font-bold text-slate-300 uppercase tracking-widest text-sm md:text-base;
+  }
+
+  .match-scoreboard-value {
+    @apply font-display font-black text-4xl text-stadium-gold;
+  }
+
+  .broadcast-ticker-log {
+    @apply flex-grow overflow-y-auto w-full bg-stadium-navy/60 backdrop-blur-md p-4 space-y-3;
+    border-left: 4px solid var(--color-stadium-navy);
+    border-right: 4px solid var(--color-stadium-navy);
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-pitch-grass-secondary) var(--color-stadium-navy);
+  }
+
+  .broadcast-ticker-entry {
+    @apply flex flex-col bg-stadium-navy rounded-lg p-3 border border-slate-700 shadow-md;
+  }
+
+  .interrogation-input-container {
+    @apply bg-stadium-navy p-4 md:p-6 shrink-0;
+    border-top: 4px solid var(--color-slate-800);
+  }
+
+  .interrogation-text-field {
+    @apply flex-grow bg-slate-800 border-2 border-slate-700 rounded-lg px-4 py-4 font-sans text-white text-lg focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed placeholder:text-slate-500;
+  }
+  
+  .interrogation-text-field:focus {
+    border-color: var(--color-pitch-grass-secondary);
+  }
+
+  .interrogation-submit-btn {
+    @apply px-6 py-4 rounded-lg flex items-center justify-center font-display font-bold uppercase transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply bg-pitch-grass-secondary text-white hover:bg-green-500;
+  }
+
+  .btn-gold {
+    @apply bg-stadium-gold text-stadium-navy hover:bg-yellow-500;
+  }
+
+  .referee-badge-container {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none;
+  }
+
+  .referee-badge {
+    @apply px-12 py-6 rounded-xl shadow-2xl flex items-center justify-center min-w-[280px];
+    border: 4px solid var(--color-stadium-navy);
+  }
+
+  .badge-yes { @apply bg-pitch-grass-secondary text-white; }
+  .badge-no { @apply bg-referee-red text-white; }
+  .badge-probably { @apply bg-stadium-gold text-stadium-navy; }
+  .badge-probably-not { @apply bg-referee-orange text-white; }
+  .badge-dont-know { @apply bg-referee-gray text-white; }
+}
+
 @layer utilities {
-  @keyframes slideFadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(1rem);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .bg-pitch-grain {
+    background-color: var(--color-pitch-grass-primary);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
   }
 
-  .animate-slide-fade-in {
-    animation: slideFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  @keyframes zoomIn {
-    from {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  .animate-zoom-in {
-    animation: zoomIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  .bg-center-circle {
+    background-image: radial-gradient(circle at center, transparent 30%, rgba(31, 162, 74, 0.1) 31%, rgba(31, 162, 74, 0.1) 33%, transparent 34%);
+    background-size: 500px 500px;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }
